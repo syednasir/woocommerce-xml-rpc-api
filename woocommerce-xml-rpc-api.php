@@ -196,7 +196,7 @@ class WC_XML_RPC_API {
 			$message = ( ! empty( $params['message'] ) ) ? $params['message'] : '';
 
 			// make sure order status is valid
-			$valid_order_statuses = get_terms( 'shop_order_status', array( 'fields' => 'names' ) );
+			$valid_order_statuses = get_terms( 'shop_order_status', array( 'fields' => 'names', 'hide_empty' => 0 ) );
 			if ( ! in_array( $order_status, $valid_order_statuses ) )
 				throw new Exception( sprintf( __( '"%s" is not a valid order status.', 'wc-xml-rpc-api' ), $order_status ), 500 );
 
